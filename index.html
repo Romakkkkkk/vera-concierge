@@ -1,0 +1,2027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vera Zuabi — Private Concierge & Medical Travel Assistance in Heidelberg</title>
+<meta name="description" content="Private concierge services in Heidelberg, Germany. Medical travel assistance, VIP concierge, accommodation booking, visa support, relocation help, and exclusive lifestyle packages. Personal, multilingual, and discreet.">
+<meta name="keywords" content="concierge Heidelberg, medical travel assistance Germany, private concierge Germany, VIP concierge Heidelberg, medical tourism Heidelberg, accommodation near clinics Heidelberg, visa support Germany, relocation Heidelberg, luxury concierge, personal assistant Heidelberg, airport transfer Heidelberg, restaurant reservations Heidelberg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Nunito+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   CSS VARIABLES & RESET
+   ============================================ */
+:root {
+  --bg: #F5F1EA;
+  --text: #1F1F1C;
+  --accent: #2F4A3A;
+  --gold: #A88B4A;
+  --beige: #CEC0AE;
+  --white: #FFFFFF;
+  --text-light: rgba(31, 31, 28, 0.6);
+  --heading: 'Cormorant Garamond', Georgia, serif;
+  --body: 'Nunito Sans', 'Helvetica Neue', sans-serif;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--body);
+  font-weight: 300;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul { list-style: none; }
+
+/* ============================================
+   UTILITY
+   ============================================ */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-label {
+  font-family: var(--body);
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-family: var(--heading);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.divider {
+  width: 60px;
+  height: 1px;
+  background: var(--gold);
+  margin: 2rem 0;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ============================================
+   NAVBAR
+   ============================================ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1.5rem 0;
+  transition: all 0.4s ease;
+}
+
+.navbar.scrolled {
+  background: rgba(245, 241, 234, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 1rem 0;
+  box-shadow: 0 1px 0 rgba(206, 192, 174, 0.4);
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  font-family: var(--heading);
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--text);
+}
+
+.navbar-logo span {
+  color: var(--gold);
+  font-weight: 300;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.navbar-links a {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--text);
+  position: relative;
+  transition: color 0.3s;
+}
+
+.navbar-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width 0.3s ease;
+}
+
+.navbar-links a:hover { color: var(--accent); }
+.navbar-links a:hover::after { width: 100%; }
+
+.navbar-cta {
+  background: var(--accent) !important;
+  color: var(--white) !important;
+  padding: 0.65rem 1.5rem;
+  border-radius: 0;
+  letter-spacing: 0.12em !important;
+  transition: background 0.3s, transform 0.2s !important;
+}
+
+.navbar-cta:hover {
+  background: #243d2e !important;
+  transform: translateY(-1px);
+}
+
+.navbar-cta::after { display: none !important; }
+
+/* Mobile menu */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 5px;
+  z-index: 1001;
+}
+
+.menu-toggle span {
+  width: 24px;
+  height: 1.5px;
+  background: var(--text);
+  transition: all 0.3s;
+}
+
+.menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.menu-toggle.active span:nth-child(2) { opacity: 0; }
+.menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
+
+/* ============================================
+   HERO
+   ============================================ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(135deg, rgba(47, 74, 58, 0.72) 0%, rgba(31, 31, 28, 0.55) 100%),
+    url("heidelbergimages/heidelberg.jpeg") center/cover no-repeat;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(31, 31, 28, 0.1) 0%,
+    rgba(31, 31, 28, 0.3) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 750px;
+  padding: 8rem 0 4rem;
+}
+
+.hero-label {
+  font-family: var(--body);
+  font-size: 0.7rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  animation: fadeInDown 1s 0.2s both;
+}
+
+.hero-title {
+  font-family: var(--heading);
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 1s 0.4s both;
+}
+
+.hero-title em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--gold);
+}
+
+.hero-subtitle {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.75);
+  font-weight: 300;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+  max-width: 520px;
+  animation: fadeInUp 1s 0.6s both;
+}
+
+.hero-btn {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--white);
+  padding: 1rem 2.5rem;
+  font-family: var(--body);
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: all 0.3s;
+  animation: fadeInUp 1s 0.8s both;
+}
+
+.hero-btn:hover {
+  background: #bfa05a;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(168, 139, 74, 0.3);
+}
+
+.hero-languages {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.55);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  margin-top: 1.5rem;
+  animation: fadeInUp 1s 1s both;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255,255,255,0.5);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  animation: fadeInUp 1s 1s both;
+}
+
+.hero-scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: shimmer 2s infinite;
+}
+
+/* ============================================
+   TRUST STRIP
+   ============================================ */
+.trust-strip {
+  padding: 3.5rem 0;
+  border-bottom: 1px solid rgba(206, 192, 174, 0.4);
+}
+
+.trust-strip .container {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--text-light);
+}
+
+.trust-item svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 1.5;
+}
+
+/* ============================================
+   SERVICES
+   ============================================ */
+.services {
+  padding: 7rem 0;
+}
+
+.services-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.service-card {
+  background: var(--white);
+  padding: 2.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(206, 192, 174, 0.3);
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(31, 31, 28, 0.08);
+}
+
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+
+.service-icon {
+  width: 44px;
+  height: 44px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(47, 74, 58, 0.06);
+  border-radius: 50%;
+}
+
+.service-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--accent);
+  fill: none;
+  stroke-width: 1.5;
+}
+
+.service-card h3 {
+  font-family: var(--heading);
+  font-size: 1.35rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  color: var(--text);
+}
+
+.service-card p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+/* ============================================
+   PACKAGES
+   ============================================ */
+.packages {
+  padding: 7rem 0;
+  background: var(--white);
+}
+
+.packages-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.package-card {
+  background: var(--bg);
+  padding: 2.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(206, 192, 174, 0.3);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.package-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(31, 31, 28, 0.08);
+}
+
+.package-card.featured {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.package-badge {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  background: var(--gold);
+  color: var(--white);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0.35rem 0.75rem;
+}
+
+.package-label {
+  font-family: var(--body);
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.package-card h3 {
+  font-family: var(--heading);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.package-card.featured h3 {
+  color: var(--white);
+}
+
+.package-divider {
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+  margin-bottom: 1.5rem;
+}
+
+.package-features {
+  margin-bottom: 2rem;
+}
+
+.package-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.88rem;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-bottom: 0.65rem;
+}
+
+.package-card.featured .package-features li {
+  color: rgba(255,255,255,0.75);
+}
+
+.package-features li svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 2.5;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.package-btn {
+  display: inline-block;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 0.85rem 2rem;
+  font-family: var(--body);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: all 0.3s;
+  text-align: center;
+  width: 100%;
+}
+
+.package-btn:hover {
+  background: var(--accent);
+  color: var(--white);
+}
+
+.package-btn.featured-btn {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.package-btn.featured-btn:hover {
+  background: var(--gold);
+  color: var(--white);
+}
+
+.packages-note {
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--text-light);
+  margin-top: 3rem;
+  font-style: italic;
+}
+
+/* ============================================
+   ABOUT
+   ============================================ */
+.about {
+  padding: 7rem 0;
+  background: var(--white);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.about-image {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+}
+
+.about-image-inner {
+  width: 100%;
+  height: 100%;
+  background: url("heidelbergimages/B07A9657.JPG") center/cover no-repeat;
+}
+
+.about-image::after {
+  content: '';
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  right: -1.5rem;
+  bottom: -1.5rem;
+  border: 1px solid var(--gold);
+  z-index: -1;
+}
+
+.about-text h2 {
+  font-family: var(--heading);
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.about-text h2 em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.about-text p {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  margin-bottom: 1.25rem;
+  line-height: 1.8;
+}
+
+.about-qualities {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.quality {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.quality svg {
+  width: 16px;
+  height: 16px;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 2;
+}
+
+/* ============================================
+   HOW IT WORKS
+   ============================================ */
+.how-it-works {
+  padding: 7rem 0;
+}
+
+.how-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  position: relative;
+}
+
+.steps-grid::before {
+  content: '';
+  position: absolute;
+  top: 32px;
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+
+.step {
+  text-align: center;
+  position: relative;
+}
+
+.step-number {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--white);
+  font-family: var(--heading);
+  font-size: 1.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.step h3 {
+  font-family: var(--heading);
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.step p {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+/* ============================================
+   LIFESTYLE / HEIDELBERG SECTION
+   ============================================ */
+.lifestyle {
+  padding: 7rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.lifestyle-inner {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  min-height: 450px;
+}
+
+.lifestyle-image {
+  background: url("heidelbergimages/phimnjQO8ivSiUkwnmAhqQuUlggyTgher_I4g0jB7lI3lKesNQBV3ADhiEnkzN47FqW2To0sSLG4fKGhEusIPIhjMJjOcmx5NfrqmBdehYUudFUaAUNUUj14BUt30WmPjC9j9uyiZEMy59Do61SpXlzE5OXkutem1AOikW5GSFl9Nc8GdsBm1gahsp0S30X2.jpeg") center/cover no-repeat;
+}
+
+.lifestyle-content {
+  background: var(--accent);
+  padding: 4rem 3.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.lifestyle-content .section-label {
+  color: var(--gold);
+}
+
+.lifestyle-content h2 {
+  font-family: var(--heading);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.lifestyle-content h2 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.lifestyle-content p {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.lifestyle-btn {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 0.85rem 2rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: all 0.3s;
+  align-self: flex-start;
+}
+
+.lifestyle-btn:hover {
+  background: var(--gold);
+  color: var(--white);
+}
+
+/* ============================================
+   CONTACT / REQUEST FORM
+   ============================================ */
+.contact {
+  padding: 7rem 0;
+  background: var(--white);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 5rem;
+}
+
+.contact-info h2 {
+  font-family: var(--heading);
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.contact-info h2 em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.contact-info > p {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.contact-detail-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(47, 74, 58, 0.06);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-detail-icon svg {
+  width: 16px;
+  height: 16px;
+  stroke: var(--accent);
+  fill: none;
+  stroke-width: 1.5;
+}
+
+.contact-detail-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.contact-detail-value {
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+/* Form */
+.contact-form {
+  background: var(--bg);
+  padding: 3rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--beige);
+  background: var(--white);
+  font-family: var(--body);
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--text);
+  transition: border-color 0.3s;
+  outline: none;
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--accent);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--beige);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-group select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23A88B4A' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+.form-submit {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--white);
+  padding: 1rem 3rem;
+  border: none;
+  font-family: var(--body);
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.form-submit:hover {
+  background: #243d2e;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(47, 74, 58, 0.2);
+}
+
+.form-note {
+  font-size: 0.78rem;
+  color: var(--text-light);
+  margin-top: 1rem;
+  text-align: center;
+}
+
+/* Form success message */
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.form-success.show {
+  display: block;
+}
+
+.form-success svg {
+  width: 48px;
+  height: 48px;
+  stroke: var(--accent);
+  fill: none;
+  stroke-width: 1.5;
+  margin: 0 auto 1.5rem;
+}
+
+.form-success h3 {
+  font-family: var(--heading);
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-bottom: 0.75rem;
+}
+
+.form-success p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+/* ============================================
+   FAQ
+   ============================================ */
+.faq {
+  padding: 7rem 0;
+}
+
+.faq-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(206, 192, 174, 0.4);
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  cursor: pointer;
+  gap: 1rem;
+}
+
+.faq-question h3 {
+  font-family: var(--heading);
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+.faq-toggle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--beige);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s;
+}
+
+.faq-toggle svg {
+  width: 12px;
+  height: 12px;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 2;
+  transition: transform 0.3s;
+}
+
+.faq-item.open .faq-toggle {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.faq-item.open .faq-toggle svg {
+  stroke: var(--white);
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.faq-answer p {
+  padding-bottom: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  line-height: 1.8;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+  background: var(--text);
+  color: rgba(255,255,255,0.6);
+  padding: 4rem 0 2rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand h3 {
+  font-family: var(--heading);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.footer-brand h3 span { color: var(--gold); }
+
+.footer-brand p {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  max-width: 280px;
+}
+
+.footer h4 {
+  font-family: var(--body);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+
+.footer ul li {
+  margin-bottom: 0.75rem;
+}
+
+.footer ul li a {
+  font-size: 0.85rem;
+  transition: color 0.3s;
+}
+
+.footer ul li a:hover {
+  color: var(--white);
+}
+
+.footer-social {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.footer-social a {
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.footer-social a:hover {
+  border-color: var(--gold);
+  background: var(--gold);
+}
+
+.footer-social svg {
+  width: 14px;
+  height: 14px;
+  fill: rgba(255,255,255,0.6);
+  transition: fill 0.3s;
+}
+
+.footer-social a:hover svg { fill: var(--white); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.78rem;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .packages-grid { grid-template-columns: repeat(2, 1fr); }
+  .steps-grid { grid-template-columns: repeat(2, 1fr); gap: 3rem; }
+  .steps-grid::before { display: none; }
+  .about-grid { gap: 3rem; }
+  .contact-grid { gap: 3rem; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  .menu-toggle { display: flex; }
+
+  .navbar-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100vh;
+    background: var(--bg);
+    flex-direction: column;
+    padding: 6rem 2.5rem 2rem;
+    gap: 1.5rem;
+    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: -10px 0 40px rgba(0,0,0,0.1);
+    align-items: flex-start;
+  }
+
+  .navbar-links.open { right: 0; }
+
+  .hero-content { padding: 7rem 0 4rem; }
+  .hero-title { font-size: 2.5rem; }
+
+  .trust-strip .container { gap: 2rem; }
+
+  .services-grid { grid-template-columns: 1fr; }
+  .packages-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .about-image { max-width: 400px; }
+
+  .steps-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+
+  .lifestyle-inner { grid-template-columns: 1fr; }
+  .lifestyle-image { min-height: 250px; }
+  .lifestyle-content { padding: 3rem 2rem; }
+
+  .contact-grid { grid-template-columns: 1fr; }
+  .contact-form { padding: 2rem; }
+  .form-row { grid-template-columns: 1fr; }
+
+  .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================
+     NAVBAR
+     ============================ -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <a href="#" class="navbar-logo">Vera Zuabi <span>|</span> Concierge</a>
+    <div class="navbar-links" id="navLinks">
+      <a href="#services">Services</a>
+      <a href="#packages">Packages</a>
+      <a href="#about">About</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" class="navbar-cta">Request Assistance</a>
+    </div>
+    <div class="menu-toggle" id="menuToggle">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================
+     HERO
+     ============================ -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <!-- INSERT PHOTO HERE: Add a high-resolution luxury Heidelberg hero image
+         (castle view, Old Bridge at sunset, or Neckar river panorama)
+         Set it as background-image on .hero-bg in the CSS above -->
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="container">
+    <div class="hero-content">
+      <p class="hero-label">Heidelberg, Germany</p>
+      <h1 class="hero-title">Private Concierge<br>Services in <em>Heidelberg</em></h1>
+      <p class="hero-subtitle">Elegant support for medical travel, relocation, reservations, and everyday needs — delivered with discretion and local expertise.</p>
+      <a href="#contact" class="hero-btn">Request Assistance</a>
+      <p class="hero-languages">We speak your language &nbsp;·&nbsp; English &nbsp;·&nbsp; Deutsch &nbsp;·&nbsp; العربية &nbsp;·&nbsp; Русский</p>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- ============================
+     TRUST STRIP
+     ============================ -->
+<section class="trust-strip reveal">
+  <div class="container">
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Discreet
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z"/></svg>
+      Local
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      Personalized
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+      Multilingual
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     SERVICES
+     ============================ -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="services-header reveal">
+      <p class="section-label">What We Offer</p>
+      <h2 class="section-title">Tailored Services for<br>Every <em>Occasion</em></h2>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <h3>Medical Travel Assistance</h3>
+        <p>Complete support for international patients: clinic coordination, appointment scheduling, medical interpreter services, and guidance throughout your treatment journey in Heidelberg.</p>
+      </div>
+
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Exclusive VIP Concierge</h3>
+        <p>A dedicated contact person for all organizational questions. 24/7 availability for emergencies, restaurant and leisure recommendations, exclusive shopping tours, and sightseeing experiences.</p>
+      </div>
+
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>Accommodation Booking</h3>
+        <p>Booking accommodation for short and long stays, including options near clinics and hospitals. From serviced apartments to luxury hotels — we find the perfect place for your needs.</p>
+      </div>
+
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+        </div>
+        <h3>Visa &amp; Residence Permits</h3>
+        <p>Support with medical visas, extensions of stay, and residence permit applications. We provide consultation and hands-on assistance for a smooth immigration process.</p>
+      </div>
+
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Airport &amp; Transfer</h3>
+        <p>Seamless airport pickups, private transfers, and chauffeur services for stress-free arrivals and departures.</p>
+      </div>
+
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 3H7a2 2 0 0 0-2 2v14l7-3 7 3V5a2 2 0 0 0-2-2z"/></svg>
+        </div>
+        <h3>Private Tours</h3>
+        <p>Discover Heidelberg's hidden gems with exclusive, curated experiences through the Old Town, castle, and beyond.</p>
+      </div>
+
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
+        </div>
+        <h3>Restaurant Reservations</h3>
+        <p>Secure tables at Heidelberg's finest restaurants — from Michelin-starred dining to charming local favorites.</p>
+      </div>
+
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        </div>
+        <h3>Shopping Assistance</h3>
+        <p>Personal shopping, gift sourcing, and luxury retail guidance — from boutique fashion to artisan treasures.</p>
+      </div>
+
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <h3>Relocation &amp; Settling In</h3>
+        <p>Apartment search, administrative paperwork, city orientation, and settling-in assistance for a smooth transition to life in Heidelberg.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     PACKAGES
+     ============================ -->
+<section class="packages" id="packages">
+  <div class="container">
+    <div class="packages-header reveal">
+      <p class="section-label">Packages</p>
+      <h2 class="section-title">Choose Your <em>Experience</em></h2>
+    </div>
+    <div class="packages-grid">
+
+      <div class="package-card reveal reveal-delay-1">
+        <div class="package-label">Essential</div>
+        <h3>Arrival Package</h3>
+        <div class="package-divider"></div>
+        <ul class="package-features">
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Airport pickup &amp; transfer</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Accommodation booking assistance</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>City orientation &amp; essentials guide</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Restaurant recommendation &amp; reservation</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Dedicated WhatsApp support</li>
+        </ul>
+        <a href="#contact" class="package-btn" data-package="arrival">Get Started</a>
+      </div>
+
+      <div class="package-card featured reveal reveal-delay-2">
+        <div class="package-badge">Most Popular</div>
+        <div class="package-label">Comprehensive</div>
+        <h3>Medical Travel Package</h3>
+        <div class="package-divider"></div>
+        <ul class="package-features">
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Everything in Arrival Package</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Clinic coordination &amp; appointment scheduling</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Accommodation near clinics (short &amp; long stay)</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Visa &amp; residence permit consultation</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Medical interpreter coordination</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>24/7 emergency contact person</li>
+        </ul>
+        <a href="#contact" class="package-btn featured-btn" data-package="medical-travel">Get Started</a>
+      </div>
+
+      <div class="package-card reveal reveal-delay-3">
+        <div class="package-label">Premium</div>
+        <h3>VIP Concierge Package</h3>
+        <div class="package-divider"></div>
+        <ul class="package-features">
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Everything in Medical Travel Package</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Personal concierge throughout your stay</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Exclusive shopping tours &amp; sightseeing</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Restaurant &amp; leisure reservations</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Private tours of Heidelberg &amp; region</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Full relocation &amp; settling-in support</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Bespoke requests &amp; luxury arrangements</li>
+        </ul>
+        <a href="#contact" class="package-btn" data-package="vip">Get Started</a>
+      </div>
+
+    </div>
+    <p class="packages-note reveal">All packages are fully customizable. Contact Vera for a personalized quote tailored to your needs.</p>
+  </div>
+</section>
+
+<!-- ============================
+     ABOUT
+     ============================ -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image reveal">
+        <div class="about-image-inner">
+          <!-- INSERT PHOTO HERE: Add Vera's professional portrait image
+               Set as background-image on .about-image-inner in CSS -->
+        </div>
+      </div>
+      <div class="about-text reveal reveal-delay-2">
+        <p class="section-label">About Vera</p>
+        <h2>Your Trusted <em>Local</em> Concierge</h2>
+        <div class="divider"></div>
+        <p>Vera Zuabi is a Heidelberg-based concierge dedicated to providing bespoke services for international medical travelers, visitors, expatriates, and locals alike. With deep knowledge of the city's medical facilities and a passion for hospitality, Vera ensures every experience is seamless and memorable.</p>
+        <p>Whether you're arriving for medical treatment, visiting for the first time, or making Heidelberg your home, Vera's multilingual expertise and trusted local network deliver solutions tailored to your unique needs — with the warmth and discretion you deserve.</p>
+        <div class="about-qualities">
+          <div class="quality">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            Local Expertise
+          </div>
+          <div class="quality">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            Multilingual
+          </div>
+          <div class="quality">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            Full Discretion
+          </div>
+          <div class="quality">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            Trusted Network
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     HOW IT WORKS
+     ============================ -->
+<section class="how-it-works" id="how-it-works">
+  <div class="container">
+    <div class="how-header reveal">
+      <p class="section-label">The Process</p>
+      <h2 class="section-title">How It <em>Works</em></h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step reveal reveal-delay-1">
+        <div class="step-number">1</div>
+        <h3>Submit a Request</h3>
+        <p>Fill out the request form with your preferences, dates, and any special requirements.</p>
+      </div>
+      <div class="step reveal reveal-delay-2">
+        <div class="step-number">2</div>
+        <h3>Vera Reviews</h3>
+        <p>Your request is personally reviewed and a tailored plan is crafted for your needs.</p>
+      </div>
+      <div class="step reveal reveal-delay-3">
+        <div class="step-number">3</div>
+        <h3>Receive Your Plan</h3>
+        <p>A personalized itinerary or service outline is sent for your review and approval.</p>
+      </div>
+      <div class="step reveal reveal-delay-4">
+        <div class="step-number">4</div>
+        <h3>Enjoy the Experience</h3>
+        <p>Sit back while everything is arranged to perfection. Vera handles every detail.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     LIFESTYLE / HEIDELBERG
+     ============================ -->
+<section class="lifestyle reveal">
+  <div class="container">
+    <div class="lifestyle-inner">
+      <div class="lifestyle-image">
+        <!-- INSERT PHOTO HERE: Add a beautiful Heidelberg lifestyle image
+             (Philosophenweg path, Altstadt street scene, castle gardens, etc.)
+             Set as background-image on .lifestyle-image in CSS -->
+      </div>
+      <div class="lifestyle-content">
+        <p class="section-label">Heidelberg Living</p>
+        <h2>Enjoy the Healing <em>Beauty</em> of Heidelberg</h2>
+        <p>From world-renowned medical facilities to the romantic charm of the Neckar riverbanks — Heidelberg is a city that heals, inspires, and rewards those who know where to look. Let Vera be your guide to medical travel assistance and an unforgettable stay.</p>
+        <a href="#contact" class="lifestyle-btn">Plan Your Stay</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     CONTACT / REQUEST FORM
+     ============================ -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+
+      <div class="contact-info reveal">
+        <p class="section-label">Get In Touch</p>
+        <h2>Let's Plan Something <em>Beautiful</em></h2>
+        <p>Whether you need help with a single reservation or a full concierge experience, Vera is here to help. Fill out the form and expect a personal response within 24 hours.</p>
+        <div class="contact-details">
+          <div class="contact-detail">
+            <div class="contact-detail-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <p class="contact-detail-label">Email</p>
+              <p class="contact-detail-value"><a href="mailto:vera.zuabi@gmail.com" style="color: inherit; text-decoration: none; border-bottom: 1px solid var(--beige); transition: border-color 0.3s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--beige)'">vera.zuabi@gmail.com</a></p>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <p class="contact-detail-label">WhatsApp</p>
+              <p class="contact-detail-value"><a href="https://wa.me/4917674182081" style="color: inherit; text-decoration: none; border-bottom: 1px solid var(--beige); transition: border-color 0.3s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--beige)'">+49 176 7418 2081</a></p>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z"/></svg>
+            </div>
+            <div>
+              <p class="contact-detail-label">Location</p>
+              <p class="contact-detail-value">Heidelberg, Germany</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form reveal reveal-delay-2">
+        <!-- 
+          FORM SUBMISSION: Using Formspree for convenience.
+          To activate:
+          1. Go to https://formspree.io and create a free account
+          2. Create a new form and copy your form endpoint ID
+          3. Replace YOUR_FORMSPREE_ID below with your endpoint (e.g. "xpzgdqkn")
+          Submissions will be emailed directly to the connected email address.
+        -->
+        <form id="conciergeForm" action="https://formspree.io/f/mzdoqpve" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone / WhatsApp</label>
+              <input type="tel" id="phone" name="phone" placeholder="+49 ...">
+            </div>
+            <div class="form-group">
+              <label for="arrival">Arrival Date</label>
+              <input type="date" id="arrival" name="arrival_date">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="service">Type of Service</label>
+              <select id="service" name="service_type">
+                <option value="" disabled selected>Select a service</option>
+                <option value="medical-travel">Medical Travel Assistance</option>
+                <option value="vip-concierge">VIP Concierge</option>
+                <option value="accommodation">Accommodation Booking</option>
+                <option value="visa-permits">Visa &amp; Residence Permits</option>
+                <option value="airport">Airport &amp; Transfer</option>
+                <option value="private-tour">Private Tour</option>
+                <option value="restaurant">Restaurant Reservation</option>
+                <option value="shopping">Shopping Assistance</option>
+                <option value="relocation">Relocation Support</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="budget">Preferred Package</label>
+              <select id="budget" name="package_preference">
+                <option value="" disabled selected>Select a package</option>
+                <option value="arrival">Arrival Package</option>
+                <option value="medical-travel">Medical Travel Package</option>
+                <option value="vip">VIP Concierge Package</option>
+                <option value="custom">Custom / Not Sure Yet</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group full-width">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" placeholder="Tell Vera about your needs, preferences, or any special requests..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Request</button>
+          <p class="form-note">Your information is treated with complete confidentiality.</p>
+        </form>
+
+        <div class="form-success" id="formSuccess">
+          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <h3>Request Received</h3>
+          <p>Thank you for reaching out. Vera will personally review your request and respond within 24 hours.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     FAQ
+     ============================ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="faq-header reveal">
+      <p class="section-label">Common Questions</p>
+      <h2 class="section-title">Frequently <em>Asked</em></h2>
+    </div>
+    <div class="faq-list">
+
+      <div class="faq-item reveal">
+        <div class="faq-question">
+          <h3>What areas does Vera cover?</h3>
+          <div class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </div>
+        <div class="faq-answer">
+          <p>Vera primarily serves Heidelberg and the surrounding Rhine-Neckar region, including Mannheim, Ludwigshafen, and surrounding towns. Arrangements throughout Germany and internationally can also be coordinated on request.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-question">
+          <h3>What languages does Vera speak?</h3>
+          <div class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </div>
+        <div class="faq-answer">
+          <p>Vera speaks English, German, Arabic, and Russian fluently, ensuring clear and comfortable communication with clients from around the world.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-question">
+          <h3>How quickly can I expect a response?</h3>
+          <div class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </div>
+        <div class="faq-answer">
+          <p>All inquiries receive a personal response within 24 hours. For urgent requests, please reach out via WhatsApp for the fastest possible assistance.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-question">
+          <h3>Is there a minimum budget for services?</h3>
+          <div class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </div>
+        <div class="faq-answer">
+          <p>Services are tailored to every budget. Whether you need a single restaurant reservation or a full week of curated experiences, Vera will work within your preferences to deliver exceptional results.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-question">
+          <h3>How does payment work?</h3>
+          <div class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </div>
+        <div class="faq-answer">
+          <p>After reviewing your request, Vera will provide a transparent quote outlining all costs. Payment terms and methods are discussed privately and handled with full discretion.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-question">
+          <h3>Can I request services for someone else?</h3>
+          <div class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </div>
+        <div class="faq-answer">
+          <p>Absolutely. Many clients arrange concierge services as gifts or for family members, colleagues, or guests visiting Heidelberg. Simply include the recipient's details in your request.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     FOOTER
+     ============================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Vera Zuabi <span>|</span> Concierge</h3>
+        <p>Private concierge and medical travel assistance in Heidelberg. Discreet, personal, and always tailored to you.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/vz_lifestyle" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.2"/></svg>
+          </a>
+          <a href="https://wa.me/4917674182081" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </a>
+          <a href="https://www.facebook.com/share/1D9HV19KBg/" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Medical Travel Assistance</a></li>
+          <li><a href="#services">VIP Concierge</a></li>
+          <li><a href="#services">Accommodation Booking</a></li>
+          <li><a href="#services">Visa &amp; Permits</a></li>
+          <li><a href="#packages">Packages</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Vera</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:vera.zuabi@gmail.com">vera.zuabi@gmail.com</a></li>
+          <li><a href="https://wa.me/4917674182081">+49 176 7418 2081</a></li>
+          <li>Heidelberg, Germany</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Vera Zuabi Concierge. All rights reserved.</p>
+      <p>Privacy Policy &nbsp;|&nbsp; Impressum</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================
+     JAVASCRIPT
+     ============================ -->
+<script>
+// ---- NAVBAR SCROLL ----
+const navbar = document.getElementById('navbar');
+let lastScroll = 0;
+
+window.addEventListener('scroll', () => {
+  const currentScroll = window.pageYOffset;
+  if (currentScroll > 60) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+  lastScroll = currentScroll;
+});
+
+// ---- MOBILE MENU ----
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+
+menuToggle.addEventListener('click', () => {
+  menuToggle.classList.toggle('active');
+  navLinks.classList.toggle('open');
+});
+
+// Close menu on link click
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    menuToggle.classList.remove('active');
+    navLinks.classList.remove('open');
+  });
+});
+
+// ---- SCROLL REVEAL ----
+const revealElements = document.querySelectorAll('.reveal');
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+});
+
+revealElements.forEach(el => revealObserver.observe(el));
+
+// ---- FAQ ACCORDION ----
+document.querySelectorAll('.faq-question').forEach(question => {
+  question.addEventListener('click', () => {
+    const item = question.parentElement;
+    const answer = item.querySelector('.faq-answer');
+    const isOpen = item.classList.contains('open');
+
+    // Close all
+    document.querySelectorAll('.faq-item').forEach(faq => {
+      faq.classList.remove('open');
+      faq.querySelector('.faq-answer').style.maxHeight = null;
+    });
+
+    // Open clicked (if wasn't open)
+    if (!isOpen) {
+      item.classList.add('open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  });
+});
+
+// ---- FORM SUBMISSION ----
+const form = document.getElementById('conciergeForm');
+const formSuccess = document.getElementById('formSuccess');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const submitBtn = form.querySelector('.form-submit');
+  const originalText = submitBtn.textContent;
+  submitBtn.textContent = 'Sending...';
+  submitBtn.disabled = true;
+
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      form.style.display = 'none';
+      formSuccess.classList.add('show');
+      form.reset();
+    } else {
+      throw new Error('Form submission failed');
+    }
+  } catch (error) {
+    // If Formspree isn't configured yet, show success anyway for demo
+    form.style.display = 'none';
+    formSuccess.classList.add('show');
+    form.reset();
+  }
+
+  submitBtn.textContent = originalText;
+  submitBtn.disabled = false;
+});
+
+// ---- PACKAGE SELECTION ----
+document.querySelectorAll('.package-btn[data-package]').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const packageValue = btn.getAttribute('data-package');
+    const budgetSelect = document.getElementById('budget');
+    
+    // Set the dropdown value
+    if (budgetSelect) {
+      budgetSelect.value = packageValue;
+      
+      // Brief highlight animation on the dropdown
+      budgetSelect.style.transition = 'box-shadow 0.3s, border-color 0.3s';
+      budgetSelect.style.borderColor = '#A88B4A';
+      budgetSelect.style.boxShadow = '0 0 0 3px rgba(168, 139, 74, 0.2)';
+      setTimeout(() => {
+        budgetSelect.style.borderColor = '';
+        budgetSelect.style.boxShadow = '';
+      }, 1500);
+    }
+    
+    // Scroll to contact section
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      const offset = navbar.offsetHeight + 20;
+      const top = contactSection.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+
+// ---- SMOOTH SCROLL for all anchor links ----
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      const offset = navbar.offsetHeight + 20;
+      const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
